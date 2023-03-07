@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<title>CMPT 361 HW2 - Megan Andrews</title>
+
+</head> <body>
+
+<h2>CMPT 361 - Homework 2</h2>
+
+<p>Name: <b>Megan Andrews</b></p>
+<p>Student No: <b>301423531</b></p>
+<p>Date: 02/10/2023</p>
+
+<h4>Honor statement:</h4>
+<p>I have not cheated in any way when doing this assignment, I did it on my own. I may have asked questions about the assignment on Piazza, I know that’s totally fine and even encouraged. I also already know that this class is graded on a curve. I realize that if I cheat and by some miracle not get caught, any increase in my grade will in turn shift the curve and result in lower grades for my classmates. Any undeserved extra grade would come at the cost of all others. That’s horrible! I would never do it.</p>
+
+<h4>1: Take four photograph pairs or sets of 4.</h4>
+
+<img src="S1-im1.png" alt="im1" width="300">
+<img src="S1-im2.png" alt="im2" width="300">
+<br><img src="S1-im3.png" alt="im3" width="300">
+<img src="S1-im4.png" alt="im4" width="300">
+<br><br>
+<img src="S2-im1.png" alt="im1" width="300">
+<img src="S2-im2.png" alt="im2" width="300">
+<br><img src="S2-im3.png" alt="im3" width="300">
+<img src="S2-im4.png" alt="im4" width="300">
+<br><br>
+<img src="S3-im1.png" alt="im1" width="300">
+<img src="S3-im2.png" alt="im2" width="300">
+<br><img src="S3-im3.png" alt="im3" width="300">
+<img src="S3-im4.png" alt="im4" width="300">
+<br><br>
+<img src="S4-im1.png" alt="im1" width="300">
+<img src="S4-im2.png" alt="im2" width="300">
+<br><br>
+
+<h4>2: FAST feature detector</h4>
+<img src="S1-fast.png" alt="S1-fast" width="300">
+<img src="S2-fast.png" alt="S2-fast" width="300">
+
+<h4>2: FASTR feature detector</h4>
+<img src="S1-fastR.png" alt="S1-fastR" width="300">
+<img src="S2-fastR.png" alt="S2-fastR" width="300">
+
+<p>Some of the points that were discrded by the FASTR feature detection include corners that were more like bumpy edges than corners. 
+    For example, in the first set of images, S1, some of the points along the hanging paper are discarded.
+    
+    The computation time for the FAST features was approximately 11.3117 seconds for each image. 
+    The computation time for the FASTR features with harris corner detection was approximately 0.1220 seconds.
+This difference in computation time is probably due to the fact that the computation of FASTR features rely on
+matrix operations. My implementation of the FAST features require looping through each of the 16 surrounding data points.
+Matlab is highly optimized for matrix operations but not for loops, therefore the FASTR features took less time to compute. </p>
+
+
+<h4>3: Point description and matching</h4>
+<img src="S1-fastMatch.png" alt="S1-fastMatch" width="600">
+<br><br>
+<img src="S1-fastRMatch.png" alt="S1-fastRMatch" width="600">
+<br><br>
+<img src="S2-fastMatch.png" alt="S2-fastMatch" width="600">
+<br><br>
+<img src="S2-fastRMatch.png" alt="S2-fastRMatch" width="600">
+
+<p>I used SURF feature description. The FASTR feature matching had fewer erroneous feature matches than the FAST feature matching. 
+The FASTR features detected corners that were more robust and more cornerlike.
+</p>
+
+<h4>4: RANSAC and Panoramas</h4>
+<img src="S1-panorama.png" alt="S1-panorama" width="600">
+<br><br>
+<img src="S2-panorama.png" alt="S2-panorama" width="600">
+<br><br>
+<img src="S3-panorama.png" alt="S3-panorama" width="600">
+<br><br>
+<img src="S4-panorama.png" alt="S4-panorama" width="600">
+
+<p>For the FASTR features, the minimum number of trials was 3000 to obtain satisfactory results.
+    The remaining parameters were 'Confidence' = 99.999 'MaxDistance' = 1.5
+
+    For the FAST features, the minimum number of trials was 1000 to obtain satisfactory results.
+    The remaining parameters were 'Confidence' = 99 'MaxDistance' = 3
+
+    The difference in the optimal parameters for FAST and FASTR features may be caused by the fact that there are fewer features to be matched with the 
+    FASTR features, therefore it requires more trials to accurately transform the corners to their ideal locations.
+    With fewer trials with the FAST features we still want to be able to create a reasonable panorama, so we have to relax the parameters of Confidence and MaxDistance in order for a good enough transformation to be found. 
+</p>
+
+
+</body> </html>
